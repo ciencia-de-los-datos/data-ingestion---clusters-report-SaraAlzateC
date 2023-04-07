@@ -14,8 +14,9 @@ import pandas as pd
 
 def ingest_data():
 
-    #
-    # Inserte su código aquí
-    #
-
+    df = pd.read_csv("clusters_report.txt")
+    df = df.rename(columns=lambda x: x.lower().replace(" ", "_"))
+    df["principales_palabras_clave"] = df["principales_palabras_clave"].str.replace(",\s+", ", ")
+    df["porcentaje_de_palabras_clave"] = df["porcentaje_de_palabras_clave"].str.replace("%", "").str.replace(",", ".")
+    df["porcentaje_de_palabras_clave"] = df["porcentaje_de_palabras_clave"].astype(float)
     return df
