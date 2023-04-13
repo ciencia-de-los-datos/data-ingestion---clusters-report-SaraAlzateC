@@ -15,7 +15,7 @@ def ingest_data():
     df = pd.read_fwf("clusters_report.txt", skiprows=4, names=['cluster', 'cantidad_de_palabras_clave', 'porcentaje_de_palabras_clave', 'principales_palabras_clave']) 
     df.fillna(method="ffill", inplace=True)
     df = df.groupby(['cluster', 'cantidad_de_palabras_clave', 'porcentaje_de_palabras_clave'])['principales_palabras_clave'].apply(' '.join).reset_index() 
-    df["principales_palabras_clave"] = df["principales_palabras_clave"].str.replace("\s+"," ").str.replace(",\s+", ", ").str.strip().str.rstrip(".")
+    df["principales_palabras_clave"] = df["principales_palabras_clave"].str.replace("\s+"," ", regex=True).str.replace(",+", ",", regex=True).str.rstrip(".")
     df["porcentaje_de_palabras_clave"] = df["porcentaje_de_palabras_clave"].str.replace("%", "").str.replace(",", ".")
     df["porcentaje_de_palabras_clave"] = df["porcentaje_de_palabras_clave"].astype(float)
     df["cantidad_de_palabras_clave"] = df["cantidad_de_palabras_clave"].astype(int)
