@@ -2,7 +2,7 @@
   "tests": [
     {
       "name": "Test 01",
-      "setup": "pip3 install pandas",
+      "setup": "pip3 install pandas==1.5.3",
       "run": "python3 tests.py 01",
       "input": "",
       "output": "",
@@ -12,7 +12,7 @@
     },
     {
       "name": "Test 02",
-      "setup": "pip3 install pandas",
+      "setup": "pip3 install pandas==1.5.3",
       "run": "python3 tests.py 02",
       "input": "",
       "output": "",
@@ -34,6 +34,56 @@
       "name": "Test 04",
       "setup": "pip3 install pandas",
       "run": "python3 tests.py 04",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    },
+    {
+      "name": "Test 05",
+      "setup": "pip3 install pandas",
+      "run": "python3 tests.py 05",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    },
+    {
+      "name": "Test 06",
+      "setup": "pip3 install pandas",
+      "run": "python3 tests.py 06",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    },
+    {
+      "name": "Test 07",
+      "setup": "pip3 install pandas",
+      "run": "python3 tests.py 07",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    },
+    {
+      "name": "Test 08",
+      "setup": "pip3 install pandas",
+      "run": "python3 tests.py 08",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    },
+    {
+      "name": "Test 09",
+      "setup": "pip3 install pandas",
+      "run": "python3 tests.py 09",
       "input": "",
       "output": "",
       "comparison": "included",
