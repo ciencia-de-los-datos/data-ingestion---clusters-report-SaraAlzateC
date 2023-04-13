@@ -13,8 +13,9 @@ import pandas as pd
 
 
 def ingest_data():
-    df = pd.read_csv("clusters_report.txt")
-    df = df.rename(columns=lambda x: x.lower().replace(" ", "_"))
+    df = pd.read_fwf("clusters_report.txt", skiprows=4, names=['cluster', 'cantidad_de_palabras_clave', 'porcentaje_de_palabras_clave', 'principales_palabras_clave']) 
+    df.fillna(method="ffill", inplace=True)
+    df = df.groupby(['cluster', 'cantidad_de_palabras_clave', 'porcentaje_de_palabras_clave'])['principales_palabras_clave'].apply(' '.join).reset_index() 
     df["principales_palabras_clave"] = df["principales_palabras_clave"].str.replace("\s+"," ").str.replace(",\s+", ", ").str.strip().str.rstrip(".")
     df["porcentaje_de_palabras_clave"] = df["porcentaje_de_palabras_clave"].str.replace("%", "").str.replace(",", ".")
     df["porcentaje_de_palabras_clave"] = df["porcentaje_de_palabras_clave"].astype(float)
